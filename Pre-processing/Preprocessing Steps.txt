@@ -1,0 +1,100 @@
+Introduction:-
+Q : Preprocessing the data is extremely important. Why?
+Because when it comes to machine learning, when it comes to AI data is the key data is like your oil and without data, your data models, your machine learning algorithms cannot train itself. You want be able to develop a model. That is the bottom line. As a result Data is the key.
+And if the preprocessing of the data is not correct, what will be the outcome?
+You are modeling when you will try to train your data and then you try to model the data, you may end up getting errors.
+That might be a situation where your model is not performing well. As a result, spend some more time but build your data properly.
+Try analyze the data properly, try to understand how data is and then make a decision.
+________________________________________________________________________________________________________________________________________________
+
+
+Step 1: Separating Feature class and Target class
+
+
+_______________________________________________________________________________________________________________________________________________________________
+
+Step 2:	Handling missing data:-
+		for example - handling NaN values., no entries for maximum columns,
+
+NaN values  :-  This means not a number. This is invalid entry. it is good idea to fill these in in numbers, to fill the missing bit, 
+using some random value or some specific value.
+It won't be random. We need to fill it with some specific value to be very precise.
+So in here, how to fill this value with a specific value.>>>>>One is technology could be making use of the average making use 
+of the mean for this value.
+One technique could be making use of median or one technique could be using the most frequent entry.
+
+Sometimes, for example,just a percent of the data is unavailable and multiple features are unavailable,
+then we can get rid of it (by removing that specific whole rows).
+
+Q :So in here, how to fill this value with a specific value.
+
+Strategies:- 
+	One is Strategies could be making use of the average making use of the mean for this value.
+	One technique could be making use of median or one technique could be using the most frequent entry.
+_________________________________________________________________________________________________________________________________________________________________________________________	
+	
+Step 3 : Feature Selection and Label encoding
+
+So first of all, the fact is, whenever we deal with AI, whenever we are dealing with the machine learning in general, 
+it is always good to convert the textual data, to convert a string related data to a numerical value.
+
+In order to visualize again, we have to firstly convert it to a numerical value.
+And there are two ways to it.
+One way is a label encoding and second one is one hot on encoding and this is something which we will be seeing one hot encoding in a different dataset, in a larger dataset.
+
+As a result, we can drop this particular feature name and still that would be a good thing for our machine learning model that will be too advantageous if we can somehow get rid of useless features.
+
+	First advantage will your machine learning Training will be faster, your application will be faster.
+	Second advantage will be that your overall data will get simplified further.
+	And the third advantage could be actually your machine learning model can perform even better without any confusion.
+____________________________________________________________________________________________________________________________________________________________________________________________________
+
+Step 4: Train-Test Split
+
+what is test set & train set?
+
+Test set is a whole load of data which we can, like, feed the model in order to understand how accurately, 
+how well our system is working and how well our model is performing and predicting the values.
+Where as Train Set is the data which is used to train the model.
+
+Now usually there is 20 percent data which is kept for testing and 80 percent data which is kept for training.
+
+so that's why little caveat that fit using your X_train, but transform your X_train and X_test. That is the way how it should be done.
+
+import numpy as np
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size =0.2, random_state =42)
+
+_____________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Step 5: Feature Scaling
+
+In many of the websites, You will find that feature scaling is done before test and train split. But usually it is recommended to go 
+with splitting first before feature scaling, because if you split the data and do the feature scaling, then you are actually splitting 
+the data and the test data is not considered in the formula when we're actually doing feature scaling and that can actually improve your model.
+
+So the recommended way is to split the data first and then do the feature scaling .
+
+Scaling Data : - In order to do that, there are two things which we can do. First thing is a standardization and  normalization.
+Now as the name suggest, if the data has a normal distribution, then normalization is a good option. But in each and every case, 
+standardization works just fine.
+
+So usually standardization is something which is widely used, and if you are absolutely sure that your data has a perfect normal 
+distribution, you can consider making use of normalization. But the standardization is something which usually and normally used.
+
+NZ ranges (0 to 1) & SD ranges (-4 to +4)
+The range then we normalized the data it's between zero to one. but when it comes to standardization, the range is  from minus four 
+to four. Usually majority of the data points will be in between -3 to +3, but it can  reach till -4 to +4 when it comes to standardization.
+
+There is a small little caveat that we need to fit the standard scalar only once. Small little caviyard that fit using your X_train, 
+but transform your X_train and X_test.
+
+So why we're doing it, why we are fighting just on the train, because we want to apply the formula on the training set and 
+apply  test and train both data set.
+
+from sklearn import preprocessing
+sc = preprocessing.StandardScaler()
+sc.fit(X_train)
+X_train = sc.transform(X_train)
+X_test = sc.transform(X_test)
