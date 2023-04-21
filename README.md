@@ -1,2 +1,2 @@
-# ML_HUB
+# ML
 Machine Learning Concept Practices(module wise)
